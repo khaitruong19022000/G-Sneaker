@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-Sneaker</title>
+    <link rel="stylesheet" href="index.css">
+    <script defer src="main.js"></script>
+</head>
+
+
+<body>
+    <main>
+        <!-- card product list -->
+        <div class="card">
+            <div class="card-header">
+                <div class="nike-img">
+                    <img src="./assets/nike.png" alt="Nike logo">
+                </div>
+                <div class="card-title">
+                    Our Products
+                </div>
+            </div>
+            <div class="card-body">
+                <% data.shoes.forEach(value=> { %>
+                    <div class="product-item">
+                        <div class="product-img-ctn" style="background-color: <%= value.color%>;">
+                            <img src="<%= value.image%>" alt="product-image">
+                        </div>
+                        <div class="product-content">
+                            <div class="product-title">
+                                <%= value.name%>
+                            </div>
+                            <div class="product-description">
+                                <%= value.description%>
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-price">
+                                $<%= value.price%>
+                            </div>
+                            <div id="<%= value.id%>">
+                                <button  
+                                onclick="addCart('<%= value.id%>', '<%= value.name%>', '<%= value.image%>', '<%= value.price%>', '<%= value.color%>')"
+                                class="product-btn">
+                                </button>
+
+                                <button class="product-btn added" style="display: none;">
+                                </button>
+                            </div>
+                            <!-- added -->
+                        </div>
+                    </div>
+                    <% }) %>
+            </div>
+        </div>
+
+
+        <!-- cart -->
+        <div class="card">
+            <div class="card-header">
+                <div class="nike-img">
+                    <img src="./assets/nike.png" alt="Nike logo">
+                </div>
+                <div class="card-title cart-title">
+                    <span>Your card</span>
+                    <span id="totalCart">$108.97 </span>
+                </div>
+            </div>
+            <div class="card-body">
+
+                <!-- cart item -->
+                <div id="top-add-cart">
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
